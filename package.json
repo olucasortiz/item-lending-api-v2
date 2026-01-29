@@ -1,0 +1,32 @@
+{
+  "name": "item-lending-api-v2",
+  "version": "1.0.0",
+  "description": "This repository represents **Phase 2** of the *Item Lending API* project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olucasortiz/item-lending-api-v2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/olucasortiz/item-lending-api-v2/issues"
+  },
+  "homepage": "https://github.com/olucasortiz/item-lending-api-v2#readme",
+  "dependencies": {
+    "fastify": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/node": "^25.1.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.9.3"
+  }
+}
