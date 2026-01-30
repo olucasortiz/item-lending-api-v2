@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:3333
+@id = 506be5ef-1c9c-47f1-8a8c-f8768ab2d108
+
+### Create item (copy the id and paste into @id)
+POST {{baseUrl}}/items
+Content-Type: application/json
+
+{
+  "name": "Book",
+  "owner": "Santiago"
+}
+
+### Create item (validation error)
+POST {{baseUrl}}/items
+Content-Type: application/json
+
+{
+  "name": "",
+  "owner": "Santiago"
+}
+
+### List items
+GET {{baseUrl}}/items
+
+### Borrow item
+PUT {{baseUrl}}/items/{{id}}/borrow
+
+### Borrow again (should 409)
+PUT {{baseUrl}}/items/{{id}}/borrow
+
+### Return item
+PUT {{baseUrl}}/items/{{id}}/return
+
+### Return again (should 409)
+PUT {{baseUrl}}/items/{{id}}/return
