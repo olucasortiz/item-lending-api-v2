@@ -5,32 +5,29 @@ import type { ItemsRepository } from './items-repository.js'
 export class MemoryItemsRepository implements ItemsRepository {
   private items: Map<string, Item> = new Map()
 
-  create(data: CreateItemData): Item {
+  async create(data: CreateItemData): Promise<Item> {
     const id = randomUUID()
 
     const item: Item = {
       id,
-      ...data
+      ...data,
     }
 
     this.items.set(id, item)
     return item
   }
 
-  findAll(): Item[] {
+  async findAll(): Promise<Item[]> {
     return Array.from(this.items.values())
   }
 
-  findById(id: string): Item | null {
-    const item = this.items.get(id)
-    if(item!= undefined)
-        return item
-    else return null
+  async findById(id: string): Promise<Item | null> {
+    return this.items.get(id) ?? null
   }
-  update(item: Item): Item | null {
-      if(!this.items.has(item.id))
-        return null
-      this.items.set(item.id,item)
-      return item
+
+  async update(item: Item): Promise<Item | null> {
+    if (!this.items.has(item.id)) return null
+    this.items.set(item.id, item)
+    return item
   }
 }

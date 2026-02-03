@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/server.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio",
     "build": "tsc",
     "start": "node dist/server.js"
   },
@@ -22,10 +25,15 @@
   },
   "homepage": "https://github.com/olucasortiz/item-lending-api-v2#readme",
   "dependencies": {
-    "fastify": "^5.7.2"
+    "@prisma/adapter-pg": "^7.3.0",
+    "@prisma/client": "^7.3.0",
+    "dotenv": "^17.2.3",
+    "fastify": "^5.7.2",
+    "pg": "^8.18.0"
   },
   "devDependencies": {
     "@types/node": "^25.1.0",
+    "prisma": "^7.3.0",
     "ts-node-dev": "^2.0.0",
     "tsx": "^4.21.0",
     "typescript": "^5.9.3"

@@ -10,6 +10,16 @@ Content-Type: application/json
   "owner": "Santiago"
 }
 
+###
+POST http://127.0.0.1:3333/items
+Content-Type: application/json
+
+{
+  "name": "Furadeira",
+  "owner": "Lucas"
+}
+
+
 ### Create item (validation error)
 POST {{baseUrl}}/items
 Content-Type: application/json
@@ -24,12 +34,20 @@ GET {{baseUrl}}/items
 
 ### Borrow item
 PUT {{baseUrl}}/items/{{id}}/borrow
+###
+GET http://127.0.0.1:3333/items/3b62fb06-7b63-4929-9bb8-a3f9adfdffc2
 
 ### Borrow again (should 409)
 PUT {{baseUrl}}/items/{{id}}/borrow
 
 ### Return item
 PUT {{baseUrl}}/items/{{id}}/return
+
+###
+PUT http://127.0.0.1:3333/items/3b62fb06-7b63-4929-9bb8-a3f9adfdffc2/borrow
+
+###
+PUT http://127.0.0.1:3333/items/3b62fb06-7b63-4929-9bb8-a3f9adfdffc2/return
 
 ### Return again (should 409)
 PUT {{baseUrl}}/items/{{id}}/return

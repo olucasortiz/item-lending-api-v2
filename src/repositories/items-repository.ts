@@ -1,9 +1,8 @@
+import type { Item, CreateItemData } from '../domain/items.js'
 
-import type { Item, CreateItemInput, CreateItemData } from '../domain/items.js'
-
-export interface ItemsRepository{
-    create(data: CreateItemData): Item
-    findAll(): Item[]
-    findById(id: string): Item | null
-    update(item: Item): Item | null
+export interface ItemsRepository {
+  create(data: CreateItemData): Promise<Item>
+  findAll(): Promise<Item[]>
+  findById(id: string): Promise<Item | null>
+  update(item: Item): Promise<Item | null>
 }

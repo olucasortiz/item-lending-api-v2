@@ -1,3 +1,4 @@
+import 'dotenv/config'
 import Fastify from 'fastify'
 import { AppError } from './errors/app-error.js'
 import { itemsRoutes } from './routes/items-routes.js'
